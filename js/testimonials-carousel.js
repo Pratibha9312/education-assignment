@@ -20,35 +20,36 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
   }
 
-  function updateSlider() {
-    const viewport = document.querySelector(".testimonial-viewport");
-    const gap = 20;
-
-    const cardWidth = viewport.offsetWidth / 3;
-
-    track.style.transform =
-        `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+  function getVisibleCards() {
+    return window.innerWidth <= 768 ? 1 : 3;
     }
 
+  function updateSlider() {
+  const visibleCards = getVisibleCards();
+  const step = 100 / visibleCards;
+  track.style.transform =
+    `translateX(-${currentIndex * step}%)`;
+}
+
   function nextSlide() {
-    const visibleCards = 3;
+    const visibleCards = getVisibleCards();
     const maxIndex = testimonials.length - visibleCards;
 
     currentIndex =
-      currentIndex >= maxIndex ? 0 : currentIndex + 1;
+        currentIndex >= maxIndex ? 0 : currentIndex + 1;
 
     updateSlider();
-  }
+    }
 
   function prevSlide() {
-    const visibleCards = 3;
+    const visibleCards = getVisibleCards();
     const maxIndex = testimonials.length - visibleCards;
 
     currentIndex =
-      currentIndex <= 0 ? maxIndex : currentIndex - 1;
+        currentIndex <= 0 ? maxIndex : currentIndex - 1;
 
     updateSlider();
-  }
+    }
 
   document.getElementById("nextBtn").addEventListener("click", nextSlide);
   document.getElementById("prevBtn").addEventListener("click", prevSlide);
@@ -56,6 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTestimonials();
   updateSlider();
 
-  setInterval(nextSlide, 5000);
+  setInterval(nextSlide, 6000);
+
+  window.addEventListener("resize", () => {
+    currentIndex = 0;
+    updateSlider();
+    });
 
 });
