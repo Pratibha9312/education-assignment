@@ -107,25 +107,35 @@ a {
 
 .hero {
     min-height: 80vh;
-
-    background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)
-        ),
-        url("../assets/images/hero-bg.webp");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
     color: white;
+    overflow: hidden;
+    position: relative;
     padding: 20px;
+}
+
+.hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(116, 115, 115, 0.35);
+    z-index: 0;
+}
+.hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
