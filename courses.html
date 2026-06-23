@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore all courses on NewLearn. Filter by category and search for Development, Design, and Marketing courses.">
+    <meta name="description" content="View course details including price, instructor, and description. Enroll in NewLearn courses today.">
+    <title>Find Courses - NewLearn | Development, Design & Marketing</title>
+    <link rel="icon" href="assets/icons/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header id="header">
+        <!-- Header Goes here-->
+    </header>
+
+    <main>
+        <section class="courses-page">
+            <div class="container">
+
+                <h1>Our Courses</h1>
+
+                <div class="filters">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search courses..."
+                    >
+
+                    <select id="categoryFilter">
+                        <option value="All">All Categories</option>
+                        <option value="Development">Development</option>
+                        <option value="Design">Design</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+                </div>
+
+                <div id="courseContainer" class="course-grid">
+                    <!-- Dynamic Course Cards -->
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="footer">
+        <!-- Footer Goes here-->
+    </div>
+
+    <script src="js/layout.js" defer></script>
+    <script src="js/courses.js" defer></script>
+    <script src="js/courses-page.js" defer></script>
+
+</body>
+</html>
