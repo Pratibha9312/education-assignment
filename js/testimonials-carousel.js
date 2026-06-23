@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="testimonial-card">
         <img src="${item.avatar}" alt="${item.name}">
         <p>"${item.message}"</p>
-        <h4>- ${item.name}</h4>
+        <h3>- ${item.name}</h3>
       </div>
     `;
   }

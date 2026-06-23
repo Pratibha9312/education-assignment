@@ -34,52 +34,43 @@ if (!selectedCourse) {
 } else {
 
   courseDetail.innerHTML = `
-    <div class="course-detail-card">
+<div class="course-detail-card">
 
-      <img
-        src="${selectedCourse.thumbnail}"
-        alt="${selectedCourse.title}"
-      >
+  <div class="course-image-wrapper">
+    <img src="${selectedCourse.thumbnail}" alt="${selectedCourse.title}">
+  </div>
 
-      <h1>${selectedCourse.title}</h1>
+  <div class="course-content">
 
-      <p>
-        <strong>Category:</strong>
-        ${selectedCourse.category}
-      </p>
+    <h1 class="course-title">${selectedCourse.title}</h1>
 
-      <p>
-        <strong>Instructor:</strong>
-        ${selectedCourse.instructor}
-      </p>
-
-      <p class="price">
-        ${selectedCourse.price}
-      </p>
-
-      <p>
-        ${selectedCourse.description}
-      </p>
-
-      <button
-        class="enroll-btn"
-        id="enrollBtn"
-      >
-        Enroll Now
-      </button>
-
-      <div id="message"></div>
-
-      <a
-        href="courses.html"
-        class="back-link"
-      >
-        ← Back to Courses
-      </a>
-
+    <div class="course-meta">
+      <span class="badge">${selectedCourse.category}</span>
+      <span class="price">${selectedCourse.price}</span>
     </div>
-  `;
 
+    <p class="course-instructor">
+      Instructor: <strong>${selectedCourse.instructor}</strong>
+    </p>
+
+    <p class="course-description">
+      ${selectedCourse.description}
+    </p>
+
+    <button class="enroll-btn" id="enrollBtn">
+      Enroll Now
+    </button>
+
+    <div id="message"></div>
+
+    <a href="courses.html" class="back-link">
+      ← Back to Courses
+    </a>
+
+  </div>
+
+</div>
+`;
   document
     .getElementById("enrollBtn")
     .addEventListener("click", () => {

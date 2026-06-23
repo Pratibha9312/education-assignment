@@ -49,4 +49,14 @@ const courses = [
       "Learn MySQL basics and database manipulation.",
     instructor: "Jennie Wilson"
   },
+  {
+    id: 6,
+    title: "Java Core",
+    category: "Development",
+    thumbnail: "assets/images/java.webp",
+    price: "₹899.00",
+    description:
+      "Learn Java basics and Core. Dive into the language.",
+    instructor: "Jennie Wilson"
+  },
 ];
