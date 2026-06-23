@@ -1,0 +1,61 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+  const track = document.getElementById("testimonialTrack");
+
+  let currentIndex = 0;
+
+  function createTestimonialCard(item) {
+    return `
+      <div class="testimonial-card">
+        <img src="${item.avatar}" alt="${item.name}">
+        <p>"${item.message}"</p>
+        <h4>- ${item.name}</h4>
+      </div>
+    `;
+  }
+
+  function renderTestimonials() {
+    track.innerHTML = testimonials
+      .map(createTestimonialCard)
+      .join("");
+  }
+
+  function updateSlider() {
+    const viewport = document.querySelector(".testimonial-viewport");
+    const gap = 20;
+
+    const cardWidth = viewport.offsetWidth / 3;
+
+    track.style.transform =
+        `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+    }
+
+  function nextSlide() {
+    const visibleCards = 3;
+    const maxIndex = testimonials.length - visibleCards;
+
+    currentIndex =
+      currentIndex >= maxIndex ? 0 : currentIndex + 1;
+
+    updateSlider();
+  }
+
+  function prevSlide() {
+    const visibleCards = 3;
+    const maxIndex = testimonials.length - visibleCards;
+
+    currentIndex =
+      currentIndex <= 0 ? maxIndex : currentIndex - 1;
+
+    updateSlider();
+  }
+
+  document.getElementById("nextBtn").addEventListener("click", nextSlide);
+  document.getElementById("prevBtn").addEventListener("click", prevSlide);
+
+  renderTestimonials();
+  updateSlider();
+
+  setInterval(nextSlide, 5000);
+
+});
